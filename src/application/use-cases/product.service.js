@@ -3,10 +3,10 @@ class ProductService {
         this.productRepository = productRepository;
     }
 
-    async getAllProducts() {
+    async getAll() {
         return this.productRepository.getAll();
     }
-    async getProduct(productData) {
+    async create(productData) {
         return this.productRepository.create(productData);
     }
 }

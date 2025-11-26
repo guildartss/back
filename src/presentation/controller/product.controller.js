@@ -3,12 +3,12 @@ class ProductController {
         this.productService = productService;
     }
 
-   getAllProducts = async (req, res) => {
-        const products = await this.productService.getAllProducts();
+    getAll = async (req, res) => {
+        const products = await this.productService.getAll();
         res.status(200).json(products);
     };
-    createProduct = async (req, res) => {
-        const product = await this.productService.createProduct(req.body);
+    create = async (req, res) => {
+        const product = await this.productService.create(req.body);
         res.status(201).json(product);
     };
 }
