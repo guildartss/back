@@ -8,8 +8,8 @@ class ProductService {
     async getAllProducts() {
         return this.productRepository.getAll();
     }
-    async getProductById(id) {
-        return this.productRepository.getById(id);
+    async getProductByID(id) {
+        return this.productRepository.getByID(id);
     }
     async createProduct(productData) {
         const productEntity = new Product(
