@@ -9,8 +9,8 @@ class ProductRepository {
     throw new Error("Method 'getAll()' must be implemented.");
   }
 
-  async getByID(id) {
-    throw new Error("Method 'getByID()' must be implemented.");
+  async getById(id) {
+    throw new Error("Method 'getById()' must be implemented.");
   }
 
   async create(product) {

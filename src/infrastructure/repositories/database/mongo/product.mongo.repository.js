@@ -7,7 +7,7 @@ class ProductMongoRepository extends ProductRepository {
     const products = await ProductModel.find();
     return products.map(p => new Product(p._id.toString(), p.name, p.price, p.description, p.stock, p.category, p.imageUrl));
   }
-  async getByID(id) {
+  async getById(id) {
     const product = await ProductModel.findById(id);
     if(!product) return null;
     return new Product(product._id.toString(), product.name, product.price, product.description, product.stock, product.category, product.imageUrl);
