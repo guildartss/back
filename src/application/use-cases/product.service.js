@@ -23,6 +23,7 @@ class ProductService {
             productData.name,
             productData.price,
             productData.description,
+            productData.mark,
             productData.stock,
             productData.category,
             productData.imageUrl
@@ -39,6 +40,7 @@ class ProductService {
             productData.name,
             productData.price,
             productData.description,
+            productData.mark,
             productData.stock,
             productData.category,
             productData.imageUrl
