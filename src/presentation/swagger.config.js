@@ -131,6 +131,57 @@ const swaggerDefinition = {
             example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
           }
         }
+      },
+      Cupon: {
+        type: 'object',
+        properties: {
+          id: { type: 'string', 
+                example: '60c72b2f9b1e8a001f8e4caa' 
+              },
+          code: { type: 'string', 
+                  example: 'SUMMER2025' 
+                },
+          type: { type: 'string', 
+                  example: 'percentage' 
+                },
+          value: { type: 'number', 
+                   example: 20 
+                 },
+          minPurchaseAmount: { type: 'number', 
+                                example: 50 
+                            },
+          expireDate: { type: 'string', 
+                        format: 'date-time', 
+                        example: '2025-12-31T23:59:59Z' 
+                      },
+          active: { type: 'boolean', 
+                    example: true 
+                  }
+        }
+      },
+      CuponInput: {
+        type: 'object',
+        properties: {
+          code: { type: 'string', 
+                  example: 'SUMMER2025' 
+                },
+          type: { type: 'string', 
+                  example: 'percentage' 
+                },
+          value: { type: 'number', 
+                   example: 20 
+                 },
+          minPurchaseAmount: { type: 'number', 
+                                example: 50 
+                             },
+          expireDate: { type: 'string', 
+                        format: 'date-time', 
+                        example: '2025-12-31T23:59:59Z' 
+                      },
+          active: { type: 'boolean', 
+                    example: true 
+                  }
+        }
       }
     }
   },
