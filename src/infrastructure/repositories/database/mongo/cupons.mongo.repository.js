@@ -13,18 +13,42 @@ class CuponsMongoRepository extends CuponsRepository {
             active: cuponsEntity.active
         });
         const savedCupons = await newCupons.save();
-        return new Cupons(savedCupons._id.toString(), savedCupons.code, savedCupons.type, savedCupons.value, savedCupons.minPurchaseAmount, savedCupons.expireDate, savedCupons.active);
+        return new Cupons({
+            id: savedCupons._id.toString(),
+            code: savedCupons.code,
+            type: savedCupons.type,
+            value: savedCupons.value,
+            minPurchaseAmount: savedCupons.minPurchaseAmount,
+            expireDate: savedCupons.expireDate,
+            active: savedCupons.active
+        });
     }
     
     async getAll() {
         const cupons = await CuponsModel.find();
-        return cupons.map(c => new Cupons(c._id.toString(), c.code, c.type, c.value, c.minPurchaseAmount, c.expireDate, c.active));
+        return cupons.map(c => new Cupons({
+            id: c._id.toString(),
+            code: c.code,
+            type: c.type,
+            value: c.value,
+            minPurchaseAmount: c.minPurchaseAmount,
+            expireDate: c.expireDate,
+            active: c.active
+        }));
     }
     
     async getById(id) {
         const cupons = await CuponsModel.findById(id);
         if (!cupons) return null;
-        return new Cupons(cupons._id.toString(), cupons.code, cupons.type, cupons.value, cupons.minPurchaseAmount, cupons.expireDate, cupons.active);
+        return new Cupons({
+            id: cupons._id.toString(),
+            code: cupons.code,
+            type: cupons.type,
+            value: cupons.value,
+            minPurchaseAmount: cupons.minPurchaseAmount,
+            expireDate: cupons.expireDate,
+            active: cupons.active
+        });
     }
     
     async update(id, cuponsEntity) {
@@ -37,7 +61,15 @@ class CuponsMongoRepository extends CuponsRepository {
             active: cuponsEntity.active
         }, { new: true });
         if (!updatedCupons) return null;
-        return new Cupons(updatedCupons._id.toString(), updatedCupons.code, updatedCupons.type, updatedCupons.value, updatedCupons.minPurchaseAmount, updatedCupons.expireDate, updatedCupons.active);
+        return new Cupons({
+            id: updatedCupons._id.toString(),
+            code: updatedCupons.code,
+            type: updatedCupons.type,
+            value: updatedCupons.value,
+            minPurchaseAmount: updatedCupons.minPurchaseAmount,
+            expireDate: updatedCupons.expireDate,
+            active: updatedCupons.active
+        });
     }
     
     async delete(id) {

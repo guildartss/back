@@ -1,6 +1,6 @@
 //const ProductRepository = require('../../infrastructure/repositories/product.repository');
 const Product = require('../../domain/entities/product.entity');    
-const { notFoundError } = require('../../domain/errors');
+const { NotFoundError } = require('../../domain/errors');
 
 class ProductService {
     constructor(productRepository) {
@@ -13,7 +13,7 @@ class ProductService {
     async getProductById(id) {
         const product = await this.productRepository.getById(id);
         if (!product) {
-            throw new notFoundError(`product with id ${id} not found`);
+            throw new NotFoundError(`product with id ${id} not found`);
         }
         return product;
     }
@@ -33,7 +33,7 @@ class ProductService {
     async updateProduct(id, productData) {
         const existingProduct = await this.productRepository.getById(id);
         if (!existingProduct) {
-            throw new notFoundError(`product with id ${id} not found`);
+            throw new NotFoundError(`product with id ${id} not found`);
         }
         const productEntity = new Product(
             id,
@@ -50,7 +50,7 @@ class ProductService {
     async deleteProduct (id) {
         const product = await this.productRepository.getById(id);
         if (!product) {
-            throw new notFoundError(`product with id ${id} not found`);
+            throw new NotFoundError(`product with id ${id} not found`);
         }
         return this.productRepository.delete(id);
     }

@@ -16,6 +16,8 @@ const productRoutes = require('./src/presentation/routes/product.routes');
 app.use('/api/v1/products', productRoutes);
 const orderRoutes = require('./src/presentation/routes/order.routes'); 
 app.use('/api/v1/order', orderRoutes);
+const cuponsRoutes = require('./src/presentation/routes/cupons.routes'); 
+app.use('/api/v1/cupons', cuponsRoutes);
 
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/roles', roleRoutes);

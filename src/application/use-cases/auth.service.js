@@ -17,13 +17,11 @@ class AuthService {
             throw new Error('Invalid credentials');
         }
 
-        // the user object from the repository might have the full role objects
-        // we need to extract role names for the token
         const roles = user.roles.map(role => role.name);
 
         const payload = { 
             id: user.id, 
-            roles: roles // take care of roles extraction they are in the payloads
+            roles: roles
         };
         
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' });
